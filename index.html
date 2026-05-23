@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Women Safety Cab Booking System</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top-nav">
+      <a class="brand" href="#splash" data-page-link="splash">
+        <span class="brand-shield">WS</span>
+        <span>SafeCab</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Toggle navigation">Menu</button>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#dashboard" data-page-link="dashboard">Dashboard</a>
+        <a href="#booking" data-page-link="booking">Book</a>
+        <a href="#tracking" data-page-link="tracking">Track</a>
+        <a href="#sos" data-page-link="sos">SOS</a>
+        <a href="#chatbot" data-page-link="chatbot">Chatbot</a>
+        <a class="nav-cta" href="#login" data-page-link="login">Login</a>
+      </nav>
+      <div class="user-menu" id="userMenu">
+        <button class="user-chip" id="userChip" type="button">Guest</button>
+        <div class="user-dropdown" id="userDropdown">
+          <button type="button" id="logoutBtn">Logout</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="page splash-page active" id="splash" data-page="splash">
+        <div class="splash-card">
+          <div class="shield-hero" aria-label="Safety shield and cab logo">
+            <div class="shield-face"></div>
+            <div class="cab-logo"><span></span><span></span></div>
+          </div>
+          <h1>Women Safety Cab Booking System</h1>
+          <p>Safe Rides, Safer Lives</p>
+          <div class="loader" aria-hidden="true"></div>
+          <div class="cta-row">
+            <button class="primary" data-page-link="login" type="button">Login</button>
+            <button class="secondary" data-page-link="signup" type="button">Signup</button>
+            <button class="ghost" data-page-link="booking" type="button">Book Ride</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="page login-hero-page" id="login" data-page="login">
+        <form class="login-hero-card" id="loginForm" novalidate>
+          <div class="front-taxi-scene" aria-label="Front taxi with women driver illustration">
+            <div class="taxi-roof"></div>
+            <div class="taxi-body">
+              <span class="driver-silhouette"></span>
+              <span class="seat-silhouette"></span>
+            </div>
+            <span class="headlight left-light"></span>
+            <span class="headlight right-light"></span>
+            <span class="taxi-grill"></span>
+            <span class="front-wheel left-front-wheel"></span>
+            <span class="front-wheel right-front-wheel"></span>
+          </div>
+          <h2>WELCOME TO SAFECAB</h2>
+          <p>Login to continue your safe journey.</p>
+          <div class="mobile-login-row">
+            <input id="loginMobile" type="tel" inputmode="numeric" placeholder="Mobile Number" required />
+            <button class="primary" type="submit">Continue</button>
+          </div>
+          <small class="error" data-error-for="loginMobile"></small>
+          <a class="forgot hero-forgot" href="#login">Forgot Password?</a>
+          <p class="form-link">New user? <button type="button" data-page-link="signup">Create Account</button></p>
+          <p class="success-message" id="loginSuccess"></p>
+        </form>
+      </section>
+
+      <section class="page auth-page" id="signup" data-page="signup">
+        <div class="auth-illustration">
+          <div class="signup-art"></div>
+          <h2>Create Your Safety Profile</h2>
+          <p>Add your details to start booking protected rides.</p>
+        </div>
+        <form class="form-card" id="signupForm" novalidate>
+          <h2>Signup</h2>
+          <label>Full Name <input id="fullName" type="text" placeholder="Pooja Sharma" required /></label>
+          <small class="error" data-error-for="fullName"></small>
+          <label>Email <input id="signupEmail" type="email" placeholder="pooja@example.com" required /></label>
+          <small class="error" data-error-for="signupEmail"></small>
+          <label>Phone Number <input id="phone" type="tel" placeholder="+91 9876543210" required /></label>
+          <small class="error" data-error-for="phone"></small>
+          <label>Password <input id="signupPassword" type="password" placeholder="Create password" required minlength="6" /></label>
+          <small class="error" data-error-for="signupPassword"></small>
+          <label>Confirm Password <input id="confirmPassword" type="password" placeholder="Confirm password" required /></label>
+          <small class="error" data-error-for="confirmPassword"></small>
+          <button class="primary full" type="submit">Create Account</button>
+          <p class="form-link">Already registered? <button type="button" data-page-link="login">Login</button></p>
+          <p class="success-message" id="signupSuccess"></p>
+        </form>
+      </section>
+
+      <section class="page dashboard-page" id="dashboard" data-page="dashboard">
+        <div class="dashboard-head">
+          <div>
+            <p class="eyebrow">Your safety, our priority</p>
+            <h2>Hello, <span id="dashboardUserName">Pooja</span></h2>
+          </div>
+          <button class="notify" type="button" aria-label="Notifications">!</button>
+        </div>
+        <div class="safety-banner">
+          <div>
+            <h3>Stay Safe, We are with you</h3>
+            <p>Verified drivers, live route sharing, and instant emergency support.</p>
+          </div>
+          <button class="primary" type="button" data-page-link="booking">Book Cab</button>
+        </div>
+        <div class="dashboard-widgets">
+          <article class="driver-trust-card">
+            <div class="driver-trust-photo"></div>
+            <div class="driver-trust-info">
+              <div class="trust-title-row">
+                <h3>Driver Trust Card</h3>
+                <span>Verified</span>
+              </div>
+              <strong>Priya Sharma</strong>
+              <p>4.8 rating • 320 completed rides • 5 years experience</p>
+            </div>
+          </article>
+          <article class="route-alert-card" id="routeAlertCard">
+            <strong>Route Deviation Alert</strong>
+            <p>Cab expected path se 350m hat gayi hai. Live tracking check karein.</p>
+            <button type="button" data-page-link="tracking">Open Tracking</button>
+          </article>
+        </div>
+        <div class="feature-grid">
+          <button class="feature-card" data-page-link="booking"><span>🚕</span>Book Cab</button>
+          <button class="feature-card" data-page-link="tracking"><span>📍</span>Live Tracking</button>
+          <button class="feature-card" data-page-link="share"><span>🛡</span>Share Ride</button>
+          <button class="feature-card emergency" data-page-link="sos"><span>SOS</span>SOS Emergency</button>
+          <button class="feature-card" data-page-link="women-driver"><span>👩</span>Women Driver</button>
+          <button class="feature-card" data-page-link="voice"><span>🎙</span>Voice Booking</button>
+          <button class="feature-card" data-page-link="chatbot"><span>AI</span>AI Chatbot</button>
+          <button class="feature-card" data-page-link="history"><span>🕘</span>Ride History</button>
+          <button class="feature-card" data-page-link="payment"><span>💳</span>Wallet</button>
+        </div>
+        <nav class="bottom-nav" aria-label="Mobile navigation">
+          <button data-page-link="dashboard">Home</button>
+          <button data-page-link="booking">Book</button>
+          <button data-page-link="tracking">Track</button>
+          <button data-page-link="sos">SOS</button>
+        </nav>
+      </section>
+
+      <section class="page split-page" id="booking" data-page="booking">
+        <form class="booking-card">
+          <p class="eyebrow">Book your ride</p>
+          <h2>Choose route</h2>
+          <label>Pickup Location
+            <div class="location-field">
+              <input id="pickupInput" value="Indore, Madhya Pradesh" />
+              <button type="button" id="currentLocationBtn">Use Current</button>
+            </div>
+          </label>
+          <small class="location-status" id="locationStatus">Tip: browser location permission allow karne par pickup automatic aa jayega.</small>
+          <label>Drop Location <input id="dropInput" value="Devi Ahilya Bai Airport, Indore" /></label>
+          <div class="trip-stats">
+            <span><b id="fareEstimate">Rs 250</b>Fare Estimate</span>
+            <span><b id="distanceEstimate">12.4 km</b>Distance</span>
+            <span><b id="timeEstimate">25 mins</b>Travel Time</span>
+          </div>
+          <p class="fare-note">Fare estimate: base Rs 55 + Rs 15/km + Rs 2/min. Real app me Google Distance Matrix API se exact fare calculate hota hai.</p>
+          <button class="primary full" type="button" data-page-link="payment">Book Now</button>
+        </form>
+        <div class="map-panel">
+          <iframe
+            id="bookingMap"
+            class="google-map"
+            title="Google map route preview"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?output=embed&saddr=Indore%2C%20Madhya%20Pradesh&daddr=Devi%20Ahilya%20Bai%20Airport%2C%20Indore">
+          </iframe>
+          <p>Right side Google Maps route preview. Production app me yahan Google Maps JavaScript API ya Leaflet map connect kar sakte ho.</p>
+        </div>
+      </section>
+
+      <section class="page split-page" id="tracking" data-page="tracking">
+        <div class="map-panel large-map">
+          <div class="tracking-map-shell">
+            <iframe
+              id="trackingMap"
+              class="google-map tracking-google-map"
+              title="Live Google map tracking"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?output=embed&saddr=Indore%2C%20Madhya%20Pradesh&daddr=Devi%20Ahilya%20Bai%20Airport%2C%20Indore">
+            </iframe>
+            <div class="live-route-overlay" aria-hidden="true">
+              <span class="live-track-line"></span>
+              <span class="live-car-marker"></span>
+              <span class="live-destination-pin"></span>
+            </div>
+          </div>
+        </div>
+        <aside class="detail-card">
+          <p class="eyebrow">Live tracking</p>
+          <h2>Driver is on the way</h2>
+          <p class="tracking-destination">Destination: <b id="trackingDestination">Devi Ahilya Bai Airport, Indore</b></p>
+          <div class="driver-row">
+            <div class="driver-image"></div>
+            <div><b>Priya Sharma</b><span>MP09AB1234 • Sedan</span></div>
+            <strong>★ 4.8</strong>
+          </div>
+          <div class="trip-stats two">
+            <span><b id="eta">5 mins</b>ETA</span>
+            <span><b>Online</b>Route Status</span>
+          </div>
+          <button class="success full" type="button" id="shareLive">Share Live Location</button>
+          <button class="outline full" type="button">Cancel Ride</button>
+          <p class="success-message" id="shareStatus"></p>
+        </aside>
+      </section>
+
+      <section class="page compact-page" id="share" data-page="share">
+        <div class="compact-card">
+          <p class="eyebrow">Share ride</p>
+          <h2>Trusted Contacts</h2>
+          <div class="contacts">
+            <label><span class="avatar mom"></span><b>Mom</b><small>+91 9876543210</small><input type="checkbox" /></label>
+            <label><span class="avatar dad"></span><b>Dad</b><small>+91 8765432109</small><input type="checkbox" checked /></label>
+            <label><span class="avatar sister"></span><b>Sister</b><small>+91 7654321098</small><input type="checkbox" /></label>
+            <label><span class="avatar friend"></span><b>Best Friend</b><small>+91 6543210987</small><input type="checkbox" checked /></label>
+          </div>
+          <button class="primary full" id="shareRideBtn" type="button">Share Now</button>
+          <p class="success-message" id="shareRideStatus"></p>
+        </div>
+      </section>
+
+      <section class="page compact-page" id="sos" data-page="sos">
+        <div class="compact-card sos-card">
+          <p class="eyebrow">Emergency</p>
+          <button class="sos-button" id="sosButton" type="button">SOS</button>
+          <h2>Location alert ready</h2>
+          <p>Emergency will be sent to trusted contacts and Police Control Room.</p>
+          <div class="emergency-list">
+            <span>Mom <b>+91 9876543210</b></span>
+            <span>Dad <b>+91 8765432109</b></span>
+            <span>Police Contact <b>100</b></span>
+          </div>
+          <button class="outline danger full" type="button">Cancel SOS</button>
+        </div>
+      </section>
+
+      <section class="page compact-page" id="recording" data-page="recording">
+        <div class="compact-card recording-card">
+          <p class="eyebrow">Safety recording</p>
+          <div class="record-indicator"><span></span> Recording <b id="timer">00:00</b></div>
+          <h2>Audio and video safety recording</h2>
+          <div class="record-icons"><span>🎙</span><span>📷</span></div>
+          <button class="primary full" type="button" id="startRecord">Start Recording</button>
+          <button class="danger-fill full" type="button" id="stopRecord">Stop Recording</button>
+        </div>
+      </section>
+
+      <section class="page compact-page" id="driver-safety" data-page="driver-safety">
+        <div class="compact-card">
+          <p class="eyebrow">AI driver safety</p>
+          <div class="progress-ring"><strong>92%</strong><span>Safe</span></div>
+          <div class="stat-list">
+            <span>Rating <b>4.8/5</b></span>
+            <span>Completed Rides <b>320</b></span>
+            <span>Safety Record <b>Good</b></span>
+            <span>Complaint History <b>Low</b></span>
+          </div>
+          <div class="prediction-card"><b>AI Prediction</b><span>This driver is safe to travel.</span></div>
+        </div>
+      </section>
+
+      <section class="page compact-page" id="chatbot" data-page="chatbot">
+        <div class="chat-card">
+          <p class="eyebrow">AI chatbot</p>
+          <div class="chat-window" id="chatWindow">
+            <div class="message bot" id="chatGreeting"><span class="bot-avatar">AI</span>Hello! How can I help you today?</div>
+            <div class="message user">How do I share my ride?</div>
+            <div class="message bot"><span class="bot-avatar">AI</span>Open Share Ride, select contacts, then tap Share Now.</div>
+          </div>
+          <form class="chat-input" id="chatForm">
+            <input id="chatText" placeholder="Type a message..." />
+            <button type="submit">Send</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="page compact-page" id="payment" data-page="payment">
+        <div class="compact-card">
+          <p class="eyebrow">Checkout</p>
+          <h2>Total Fare: <span id="paymentFare">Rs 250</span></h2>
+          <div class="payment-options">
+            <label><span>UPI</span><input type="radio" name="pay" value="upi" checked /></label>
+            <label><span>Credit / Debit Card</span><input type="radio" name="pay" value="card" /></label>
+            <label><span>Wallet</span><input type="radio" name="pay" value="wallet" /></label>
+            <label><span>Cash</span><input type="radio" name="pay" value="cash" /></label>
+          </div>
+          <div class="payment-detail active" id="upiPanel">
+            <img class="qr-image" src="assets/images/upi-qr.jpeg" alt="UPI QR code for Piyush kumar Mishra" />
+            <div>
+              <b>Scan UPI QR</b>
+              <span>Open any UPI app and scan this code to pay securely.</span>
+              <small>UPI ID: piyushkumarmishra345@oksbi</small>
+            </div>
+          </div>
+          <div class="payment-detail card-form" id="cardPanel">
+            <label>Card Holder Name <input id="cardName" placeholder="Pooja Sharma" /></label>
+            <label>Card Number <input id="cardNumber" inputmode="numeric" placeholder="1234 5678 9012 3456" /></label>
+            <div class="card-row">
+              <label>Expiry <input placeholder="MM/YY" /></label>
+              <label>CVV <input inputmode="numeric" placeholder="123" /></label>
+            </div>
+          </div>
+          <div class="payment-detail" id="walletPanel">
+            <b>Wallet Selected</b>
+            <span>Wallet balance will be used for this ride payment.</span>
+          </div>
+          <div class="payment-detail" id="cashPanel">
+            <b>Cash Selected</b>
+            <span>Pay cash directly to the driver after your ride.</span>
+          </div>
+          <button class="primary full" id="payNowBtn" type="button">Pay Now</button>
+          <p class="success-message" id="paymentSuccess"></p>
+        </div>
+      </section>
+
+      <section class="page compact-page" id="voice" data-page="voice">
+        <div class="compact-card voice-card">
+          <p class="eyebrow">Voice booking</p>
+          <div class="voice-layout">
+            <div class="voice-main">
+              <button class="mic-button" id="voiceMicBtn" type="button" aria-label="Start voice booking">🎙</button>
+              <h2 id="voiceStatus">Tap mic to speak</h2>
+              <p>You can say “Book cab to Airport” or “Take me to Mumbai”.</p>
+            </div>
+            <div class="voice-ai-panel">
+              <span class="ai-badge">AI Voice Assistant</span>
+              <h3>Command Understanding</h3>
+              <div class="voice-transcript" id="voiceTranscript">Waiting for your command...</div>
+              <div class="voice-result">
+                <span>Detected Destination</span>
+                <b id="voiceDestination">Not selected</b>
+              </div>
+              <div class="voice-actions">
+                <button class="voice-chip" type="button" data-command="Book cab to Airport">Book cab to Airport</button>
+                <button class="voice-chip" type="button" data-command="Take me to Mumbai">Take me to Mumbai</button>
+                <button class="voice-chip" type="button" data-command="Book ride to Bhopal">Book ride to Bhopal</button>
+              </div>
+            </div>
+          </div>
+          <div class="voice-footer-actions">
+            <button class="primary" id="voiceConfirmBtn" type="button">Use Command</button>
+            <button class="outline danger" type="button" data-page-link="dashboard">Cancel</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="page compact-page" id="women-driver" data-page="women-driver">
+        <div class="compact-card">
+          <div class="driver-illustration"></div>
+          <h2>Women Driver Preference</h2>
+          <p>We will assign a verified women driver to your ride when available.</p>
+          <label class="toggle-row"><b>Enable Preference</b><input type="checkbox" checked /></label>
+          <button class="primary full" type="button">Save Preference</button>
+        </div>
+      </section>
+
+      <section class="page compact-page" id="history" data-page="history">
+        <div class="compact-card">
+          <p class="eyebrow">Ride history</p>
+          <h2>Recent Safe Rides</h2>
+          <div class="stat-list">
+            <span>Airport Ride <b>Rs 250</b></span>
+            <span>Office Ride <b>Rs 180</b></span>
+            <span>Home Ride <b>Rs 220</b></span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div class="deviation-popup" id="deviationPopup" role="alert">
+      <strong>Route Deviation Alert</strong>
+      <p>Your cab has moved away from the expected route.</p>
+      <div>
+        <button type="button" data-page-link="tracking">Track Now</button>
+        <button type="button" id="dismissDeviation">Dismiss</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
